@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Link</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      background-attachment: fixed;
+      padding: 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 107, 107, 0.15), transparent 70%);
+      top: -100px;
+      right: -100px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(78, 205, 196, 0.12), transparent 70%);
+      bottom: -150px;
+      left: -150px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #fff;
+      border-radius: 50%;
+      animation: twinkle var(--duration) ease-in-out infinite;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.5); }
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255,255,255,0.15);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      margin-bottom: 20px;
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .name {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .bio {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+      font-weight: 300;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+    .links { display: flex; flex-direction: column; gap: 14px; }
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 24px;
+      border-radius: 16px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #fff;
+      backdrop-filter: blur(20px);
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .link::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--gradient));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 16px;
+    }
+    .link:hover::before { opacity: 1; }
+    .link:hover {
+      transform: translateY(-3px) scale(1.02);
+      border-color: transparent;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+    .link span, .link svg { position: relative; z-index: 1; }
+    .link svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .instagram::before { --gradient: #f093fb, #f5576c; }
+    .tiktok::before { --gradient: #00f2fe, #4facfe; }
+    .youtube::before { --gradient: #ff6b6b, #ee5a24; }
+    .twitter::before { --gradient: #4facfe, #00f2fe; }
+    .github::before { --gradient: #a18cd1, #fbc2eb; }
+    .website::before { --gradient: #43e97b, #38f9d7; }
+    .spotify::before { --gradient: #38ef7d, #11998e; }
+    .whatsapp::before { --gradient: #25d366, #128c7e; }
+    .footer {
+      margin-top: 40px;
+      color: rgba(255,255,255,0.25);
+      font-size: 0.75rem;
+      font-weight: 300;
+    }
+    .footer a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer a:hover { color: rgba(255,255,255,0.7); }
+    @media (max-width: 480px) {
+      .avatar { width: 100px; height: 100px; }
+      .name { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+
+  <div class="container">
+    <img class="avatar" src="https://api.dicebear.com/9.x/notionists/svg?seed=Felix&backgroundColor=ffdfbf,c0aede,d1d4f9" alt="avatar">
+    <div class="name">@toxd____</div>
+    <div class="bio">Be kind • Work hard • Stay humble</div>
+
+    <div class="links">
+      <a class="link instagram" href="https://instagram.com/toxd____" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        <span>Instagram</span>
+      </a>
+      <a class="link tiktok" href="rahasia.html?type=tiktok">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+        <span>TikTok</span>
+      </a>
+      <a class="link youtube" href="rahasia.html?type=youtube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29.38 29.38 0 0 0 1 12a29.38 29.38 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29.38 29.38 0 0 0 23 12a29.38 29.38 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        <span>YouTube</span>
+      </a>
+      <a class="link github" href="https://github.com/Todzxx" 
+      target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        <span>GitHub</span>
+      </a>
+      <a class="link website" href="rahasia.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span>&#x1F5B1; Rahasia</span>
+      </a>
+    </div>
+
+    <div class="footer">
+      <a href="https://instagram.com/toxd____" target="_blank" rel="noopener">follow for more &rarr;</a>
+    </div>
+  </div>
+
+  <script>
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 120; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.setProperty('--duration', (3 + Math.random() * 4) + 's');
+      star.style.animationDelay = Math.random() * 5 + 's';
+      star.style.width = star.style.height = (1 + Math.random() * 2) + 'px';
+      starsContainer.appendChild(star);
+    }
+  </script>
+</body>
+</html>
