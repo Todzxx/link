@@ -36,7 +36,7 @@
       position: fixed;
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(255, 165, 0, 0.08), transparent 70%);
+      background: radial-gradient(circle, rgba(78, 205, 196, 0.08), transparent 70%);
       bottom: -200px;
       right: -200px;
       border-radius: 50%;
@@ -62,7 +62,7 @@
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 500px;
+      max-width: 420px;
       text-align: center;
     }
     .img-wrapper {
@@ -70,42 +70,39 @@
       display: inline-block;
       margin-bottom: 20px;
       animation: float 4s ease-in-out infinite;
-      user-select: none;
-    }
-    .monkey-img {
-      display: block;
-      width: 280px;
-      height: 280px;
-      object-fit: cover;
-      border-radius: 24px;
-      box-shadow: 0 0 60px rgba(255,165,0,0.15);
-      border: 2px solid rgba(255,255,255,0.08);
     }
     @keyframes float {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
+      50% { transform: translateY(-10px); }
+    }
+    .page-img {
+      display: block;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 3px solid rgba(255,255,255,0.1);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
     }
     .title {
       color: #fff;
       font-size: 1.3rem;
       font-weight: 700;
-      margin-bottom: 8px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      opacity: 0.8;
+      margin-bottom: 4px;
+      letter-spacing: 1px;
     }
     .subtitle {
       color: rgba(255,255,255,0.4);
       font-size: 0.85rem;
       font-weight: 300;
-      margin-bottom: 40px;
+      margin-bottom: 36px;
     }
     .btn-back {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 14px 32px;
-      border-radius: 14px;
+      border-radius: 16px;
       text-decoration: none;
       font-weight: 600;
       font-size: 0.9rem;
@@ -126,7 +123,7 @@
       height: 18px;
     }
     @media (max-width: 480px) {
-      .monkey-img { width: 220px; height: 220px; }
+      .page-img { width: 170px; height: 170px; }
       .title { font-size: 1.1rem; }
     }
   </style>
@@ -136,10 +133,9 @@
 
   <div class="container">
     <div class="img-wrapper">
-      <img class="monkey-img" id="pageImage" src="monkey.jpeg" alt="monkey">
+      <img class="page-img" id="pageImage" src="monkey.jpeg" alt="">
     </div>
     <div class="title" id="pageTitle">fuck you</div>
-    <div class="subtitle" id="pageSubtitle">hehe</div>
     <a class="btn-back" href="index.html">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
       Kembali
@@ -167,12 +163,10 @@
 
     if (type === 'youtube') {
       img.src = 'youtube.jpeg';
-      title.textContent = 'Belum ada';
-      subtitle.textContent = '';
+      title.textContent = 'belum ada';
     } else if (type === 'tiktok') {
       img.src = 'tiktok.jpeg';
-      title.textContent = 'Apa nyak';
-      subtitle.textContent = '🫲🤨🫱';
+      title.textContent = 'mana nyak';
     }
   </script>
 </body>
